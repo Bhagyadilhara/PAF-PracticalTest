@@ -60,6 +60,12 @@
 			<div id="alertError" class="alert alert-danger"></div>
 			<br>
 
+			<div id="divItemsGrid">
+				<%
+					Patient patientObj = new Patient();
+					out.print(patientObj.readPatients());
+				%>
+			</div>
 			
 		</div>
 	</div>
