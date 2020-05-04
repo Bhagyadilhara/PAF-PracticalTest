@@ -18,38 +18,38 @@
 		<div class="col-6">
 			<h1>Patients Management</h1>
 			
-			<form id="formPatient" name="formItem" method="post" action="patients.jsp">
+			<form id="formPatient" name="formPatient" method="post" action="patients.jsp">
 
 				User Name:
-				<input id="itemCode" name="itemCode" type="text" class="form-control form-control-sm">
+				<input id="userName" name="userName" type="text" class="form-control form-control-sm">
 				<br>
 				 
 				Address:
-				<input id="itemName" name="itemName" type="text" class="form-control form-control-sm">
+				<input id="address" name="address" type="text" class="form-control form-control-sm">
 				<br>
 				
 				NIC No:
-				<input id="itemPrice" name="itemPrice" type="text" class="form-control form-control-sm">
+				<input id="nic" name="nic" type="text" class="form-control form-control-sm">
 				<br>
 				 
 				Date of Birth:
-				<input id="itemDesc" name="itemDesc" type="text" class="form-control form-control-sm">
+				<input id="dob" name="dob" type="text" class="form-control form-control-sm">
 				<br>
 				
 				Gender:
-				<input id="itemDesc" name="itemDesc" type="text" class="form-control form-control-sm">
+				<input id="gender" name="gender" type="text" class="form-control form-control-sm">
 				<br>
 				
 				Mobile Number:
-				<input id="itemDesc" name="itemDesc" type="text" class="form-control form-control-sm">
+				<input id="mobileNo" name="mobileNo" type="text" class="form-control form-control-sm">
 				<br>
 				
 				E-mail:
-				<input id="itemDesc" name="itemDesc" type="text" class="form-control form-control-sm">
+				<input id="email" name="email" type="text" class="form-control form-control-sm">
 				<br>
 				
 				Password:
-				<input id="itemDesc" name="itemDesc" type="text" class="form-control form-control-sm">
+				<input id="password" name="password" type="text" class="form-control form-control-sm">
 				<br>
 				
 				<input id="btnSave" name="btnSave" type="button" value="Save" class="btn btn-primary">
@@ -60,7 +60,7 @@
 			<div id="alertError" class="alert alert-danger"></div>
 			<br>
 
-			<div id="divItemsGrid">
+			<div id="divPatientsGrid">
 				<%
 					Patient patientObj = new Patient();
 					out.print(patientObj.readPatients());
