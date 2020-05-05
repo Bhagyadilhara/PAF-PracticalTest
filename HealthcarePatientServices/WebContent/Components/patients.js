@@ -76,13 +76,59 @@ function onPatientSaveComplete(response, status)
 $(document).on("click", ".btnUpdate", function(event)
 {
 	$("#hidPatientIDSave").val($(this).closest("tr").find('#hidPatientIDUpdate').val());
-	$("#userName").val($(this).closest("tr").find('td:eq(0)').text());
-	$("#address").val($(this).closest("tr").find('td:eq(1)').text());
-	$("#nic").val($(this).closest("tr").find('td:eq(2)').text());
-	$("#dob").val($(this).closest("tr").find('td:eq(3)').text());
-	$("#gender").val($(this).closest("tr").find('td:eq(4)').text());
-	$("#mobileNo").val($(this).closest("tr").find('td:eq(5)').text());
-	$("#email").val($(this).closest("tr").find('td:eq(6)').text());
-	$("#password").val($(this).closest("tr").find('td:eq(7)').text());
+	$("#userName").val($(this).closest("tr").find('td:eq(1)').text());
+	$("#address").val($(this).closest("tr").find('td:eq(2)').text());
+	$("#nic").val($(this).closest("tr").find('td:eq(3)').text());
+	$("#dob").val($(this).closest("tr").find('td:eq(4)').text());
+	$("#gender").val($(this).closest("tr").find('td:eq(5)').text());
+	$("#mobileNo").val($(this).closest("tr").find('td:eq(6)').text());
+	$("#email").val($(this).closest("tr").find('td:eq(7)').text());
+	$("#password").val($(this).closest("tr").find('td:eq(8)').text());
 });
+
+//REMOVE==========================================
+$(document).on("click", ".btnRemove", function(event)
+{
+	$.ajax(
+	{
+		url : "PatientsAPI",
+		type : "DELETE",
+		data : "userID=" + $(this).data("userid"),
+		dataType : "text",
+		complete : function(response, status)
+		{
+			onPatientDeleteComplete(response.responseText, status);
+		}
+	});
+});
+
+function onPatientDeleteComplete(response, status)
+{
+	if (status == "success")
+	{
+		var resultSet = JSON.parse(response);
+		
+		if (resultSet.status.trim() == "success")
+		{
+			$("#alertSuccess").text("Successfully deleted.");
+			$("#alertSuccess").show();
+			$("#divPatientsGrid").html(resultSet.data);
+		} 
+		else if (resultSet.status.trim() == "error")
+		{
+			$("#alertError").text(resultSet.data);
+			$("#alertError").show();
+		}
+	} 
+	else if (status == "error")
+	{
+		$("#alertError").text("Error while deleting.");
+		$("#alertError").show();
+	} 
+	else
+	{
+		$("#alertError").text("Unknown error while deleting..");
+		$("#alertError").show();
+	}
+}
 
