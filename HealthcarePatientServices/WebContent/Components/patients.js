@@ -132,3 +132,63 @@ function onPatientDeleteComplete(response, status)
 	}
 }
 
+
+function validatePatientForm()
+{
+	
+	// USERNAME
+	if ($("#userName").val().trim() == "")
+	{
+		return "Insert Patient Name.";
+	}
+	
+	//ADDRESS
+	if ($("#userAddress").val().trim() == "")
+	{
+		return "Insert Current Address.";
+	}
+	
+	//NIC
+	if ($("#nic").val().trim() == "")
+	{
+		return "Insert Valid NIC Number.";
+	}
+	
+	//DOB
+	if ($("#dob").val().trim() == "")
+	{
+		return "Insert Date of Birth.";
+	}
+	
+	//GENDER
+	if ($("#gender").val().trim() == "")
+	{
+		return "Insert Gender.";
+	}
+	
+	//MOBILENO
+	// is numerical value
+	var tmpMobileNo = $("#mobileNo").val().trim();
+	
+	if (!$.isNumeric(tmpMobileNo))
+	{
+		return "Insert a numerical value for Mobile No.";
+	}
+	
+	//EMAIL
+	if ($("#email").val().trim() == "")
+	{
+		return "Insert E-mail Address.";
+	}
+	
+	//PASSWORD
+	if ($("#password").val().trim() == "")
+	{
+		return "Insert Valid Password.";
+	}
+	
+	
+	return true;
+}
+
+
