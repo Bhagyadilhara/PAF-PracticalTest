@@ -25,7 +25,7 @@
 				<br>
 				 
 				Address:
-				<input id="address" name="address" type="text" class="form-control form-control-sm">
+				<input id="userAddress" name="userAddress" type="text" class="form-control form-control-sm">
 				<br>
 				
 				NIC No:
