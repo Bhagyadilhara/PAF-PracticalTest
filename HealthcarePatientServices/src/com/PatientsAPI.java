@@ -59,18 +59,18 @@ public class PatientsAPI extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String output = patientObj.insertPatient(request.getParameter("username"),
-						request.getParameter("address"),
-						request.getParameter("nic"),
-						request.getParameter("dob"),
+		String output = patientObj.insertPatient(request.getParameter("userName"),
+						request.getParameter("userAddress"),
+						request.getParameter("nicNo"),
+						request.getParameter("dateOfBirth"),
 						request.getParameter("gender"),
-						request.getParameter("mobile_number"),
+						request.getParameter("mobileNumber"),
 						request.getParameter("email"),
 						request.getParameter("password"));
 		
 		response.getWriter().write(output);
 				
-				//(username, address, nic, dob, gender, mobile_number, email, password)
+		//(`userID`,`userName`,`userAddress`,`nicNo`,`dateOfBirth`,`gender`,`mobileNumber`,`email`,`password`)
 	}
 
 	
