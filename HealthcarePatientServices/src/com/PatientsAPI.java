@@ -79,12 +79,12 @@ public class PatientsAPI extends HttpServlet {
 		Map paras = getParasMap(request);
 		
 		String output = patientObj.updatePatient(paras.get("hidPatientIDSave").toString(),
-						paras.get("username").toString(),
-						paras.get("address").toString(),
-						paras.get("nic").toString(),
-						paras.get("dob").toString(),
+						paras.get("userName").toString(),
+						paras.get("userAddress").toString(),
+						paras.get("nicNo").toString(),
+						paras.get("dateOfBirth").toString(),
 						paras.get("gender").toString(),
-						paras.get("mobile_number").toString(),
+						paras.get("mobileNumber").toString(),
 						paras.get("email").toString(),
 						paras.get("password").toString());
 				
