@@ -29,11 +29,11 @@
 				<br>
 				
 				NIC No:
-				<input id="nic" name="nic" type="text" class="form-control form-control-sm">
+				<input id="nicNo" name="nicNo" type="text" class="form-control form-control-sm">
 				<br>
 				 
 				Date of Birth:
-				<input id="dob" name="dob" type="text" class="form-control form-control-sm">
+				<input id="dateOfBirth" name="dateOfBirth" type="text" class="form-control form-control-sm">
 				<br>
 				
 				Gender:
@@ -41,7 +41,7 @@
 				<br>
 				
 				Mobile Number:
-				<input id="mobileNo" name="mobileNo" type="text" class="form-control form-control-sm">
+				<input id="mobileNumber" name="mobileNumber" type="text" class="form-control form-control-sm">
 				<br>
 				
 				E-mail:
