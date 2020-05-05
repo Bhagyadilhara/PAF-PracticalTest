@@ -1,10 +1,7 @@
 $(document).ready(function()
 {
-	if ($("#alertSuccess").text().trim() == "")
-	 {
-			$("#alertSuccess").hide();
-	 }
-	 $("#alertError").hide(); 
+	$("#alertSuccess").hide();
+	$("#alertError").hide(); 
 });
 
 //SAVE ============================================
@@ -76,7 +73,6 @@ function onPatientSaveComplete(response, status)
 	$("#formPatient")[0].reset();
 }
 
-
 //UPDATE==========================================
 $(document).on("click", ".btnUpdate", function(event)
 {
@@ -90,6 +86,7 @@ $(document).on("click", ".btnUpdate", function(event)
 	$("#email").val($(this).closest("tr").find('td:eq(6)').text());
 	$("#password").val($(this).closest("tr").find('td:eq(7)').text());
 });
+
 
 //REMOVE==========================================
 $(document).on("click", ".btnRemove", function(event)
@@ -107,7 +104,6 @@ $(document).on("click", ".btnRemove", function(event)
 	});
 });
 
-
 function onPatientDeleteComplete(response, status)
 {
 	if (status == "success")
@@ -118,7 +114,6 @@ function onPatientDeleteComplete(response, status)
 		{
 			$("#alertSuccess").text("Successfully deleted.");
 			$("#alertSuccess").show();
-			
 			$("#divPatientsGrid").html(resultSet.data);
 		} 
 		else if (resultSet.status.trim() == "error")
@@ -173,13 +168,17 @@ function validatePatientForm()
 		return "Insert Gender.";
 	}
 	
-	//MOBILENO
+	//MOBILENO-------------------------------
+	if ($("#mobileNumber").val().trim() == "")
+	{
+		return "Insert Mobile Number.";
+	}
 	// is numerical value
 	var tmpMobileNo = $("#mobileNumber").val().trim();
 	
 	if (!$.isNumeric(tmpMobileNo))
 	{
-		return "Insert a numerical value for Mobile No.";
+		return "Insert numerical value for Mobile Number.";
 	}
 	
 	//EMAIL
@@ -196,5 +195,6 @@ function validatePatientForm()
 	
 	return true;
 }
+
 
 
