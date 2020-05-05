@@ -1,7 +1,10 @@
 $(document).ready(function()
 {
-	$("#alertSuccess").hide();
-	$("#alertError").hide();
+	if ($("#alertSuccess").text().trim() == "")
+	 {
+			$("#alertSuccess").hide();
+	 }
+	 $("#alertError").hide(); 
 });
 
 //SAVE ============================================
@@ -44,10 +47,12 @@ function onPatientSaveComplete(response, status)
 	if (status == "success")
 	{
 		var resultSet = JSON.parse(response);
+		
 		if (resultSet.status.trim() == "success")
 		{
 			$("#alertSuccess").text("Successfully saved.");
 			$("#alertSuccess").show();
+			
 			$("#divPatientsGrid").html(resultSet.data);
 		} 
 		else if (resultSet.status.trim() == "error")
@@ -76,14 +81,14 @@ function onPatientSaveComplete(response, status)
 $(document).on("click", ".btnUpdate", function(event)
 {
 	$("#hidPatientIDSave").val($(this).closest("tr").find('#hidPatientIDUpdate').val());
-	$("#userName").val($(this).closest("tr").find('td:eq(1)').text());
-	$("#address").val($(this).closest("tr").find('td:eq(2)').text());
-	$("#nic").val($(this).closest("tr").find('td:eq(3)').text());
-	$("#dob").val($(this).closest("tr").find('td:eq(4)').text());
-	$("#gender").val($(this).closest("tr").find('td:eq(5)').text());
-	$("#mobileNo").val($(this).closest("tr").find('td:eq(6)').text());
-	$("#email").val($(this).closest("tr").find('td:eq(7)').text());
-	$("#password").val($(this).closest("tr").find('td:eq(8)').text());
+	$("#userName").val($(this).closest("tr").find('td:eq(0)').text());
+	$("#userAddress").val($(this).closest("tr").find('td:eq(1)').text());
+	$("#nicNo").val($(this).closest("tr").find('td:eq(2)').text());
+	$("#dateOfBirth").val($(this).closest("tr").find('td:eq(3)').text());
+	$("#gender").val($(this).closest("tr").find('td:eq(4)').text());
+	$("#mobileNumber").val($(this).closest("tr").find('td:eq(5)').text());
+	$("#email").val($(this).closest("tr").find('td:eq(6)').text());
+	$("#password").val($(this).closest("tr").find('td:eq(7)').text());
 });
 
 //REMOVE==========================================
@@ -102,6 +107,7 @@ $(document).on("click", ".btnRemove", function(event)
 	});
 });
 
+
 function onPatientDeleteComplete(response, status)
 {
 	if (status == "success")
@@ -112,6 +118,7 @@ function onPatientDeleteComplete(response, status)
 		{
 			$("#alertSuccess").text("Successfully deleted.");
 			$("#alertSuccess").show();
+			
 			$("#divPatientsGrid").html(resultSet.data);
 		} 
 		else if (resultSet.status.trim() == "error")
@@ -132,7 +139,7 @@ function onPatientDeleteComplete(response, status)
 	}
 }
 
-
+//CLIENT-MODEL=================================================================
 function validatePatientForm()
 {
 	
@@ -149,13 +156,13 @@ function validatePatientForm()
 	}
 	
 	//NIC
-	if ($("#nic").val().trim() == "")
+	if ($("#nicNo").val().trim() == "")
 	{
 		return "Insert Valid NIC Number.";
 	}
 	
 	//DOB
-	if ($("#dob").val().trim() == "")
+	if ($("#dateOfBirth").val().trim() == "")
 	{
 		return "Insert Date of Birth.";
 	}
@@ -168,7 +175,7 @@ function validatePatientForm()
 	
 	//MOBILENO
 	// is numerical value
-	var tmpMobileNo = $("#mobileNo").val().trim();
+	var tmpMobileNo = $("#mobileNumber").val().trim();
 	
 	if (!$.isNumeric(tmpMobileNo))
 	{
@@ -186,7 +193,6 @@ function validatePatientForm()
 	{
 		return "Insert Valid Password.";
 	}
-	
 	
 	return true;
 }

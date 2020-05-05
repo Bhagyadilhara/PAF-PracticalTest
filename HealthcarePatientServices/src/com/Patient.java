@@ -34,7 +34,6 @@ public class Patient {
 			}
 			// Prepare the html table to be displayed
 			output = "<table border=\"1\"><tr>"
-					+ "<th>UserID</th>"
 					+ "<th>UserName</th>"
 					+ "<th>Address</th>"
 					+ "<th>NIC</th>"
@@ -63,9 +62,9 @@ public class Patient {
 				String email = rs.getString("email");
 				String password = rs.getString("password");
 				
-				// Add into the html table
-				output += "<tr><td>" + userID + "</td>";
-				output += "<td>" + userName + "</td>";
+				//Add into the html table
+				
+				output += "<tr><td><input id='hidPatientIDUpdate' name='hidPatientIDUpdate' type='hidden' value='" + userID + "'>" + userName + "</td>";
 				output += "<td>" + userAddress + "</td>";
 				output += "<td>" + nicNo + "</td>";
 				output += "<td>" + dateOfBirth + "</td>";
@@ -73,11 +72,12 @@ public class Patient {
 				output += "<td>" + mobileNumber + "</td>";
 				output += "<td>" + email + "</td>";
 				output += "<td>" + password + "</td>";
+				
 				// buttons
 				output += "<td><input name='btnUpdate'type='button' "
 						+ "value='Update'class='btnUpdate btn btn-secondary'></td>"
 						+ "<td><input name='btnRemove'type='button' "
-						+ "value='Remove'class='btnRemove btn btn-danger'data-userid='"+ userID + "'>" + "</td></tr>";
+						+ "value='Remove'class='btnRemove btn btn-danger' data-userid='"+ userID + "'>" + "</td></tr>";
 			}
 			con.close();
 			// Complete the html table
@@ -92,9 +92,8 @@ public class Patient {
 	
 	}
 	
-	
 	//insert-------------------------------------------------------------------------------------------------------------------------
-	public String insertPatient(String username,String address,String nic,String dob,String gender,String mobile_number,String email,String password)
+	public String insertPatient(String userName,String userAddress,String nicNo,String dateOfBirth,String gender,String mobileNumber,String email,String password)
     {
 			String output = "";
 			try
@@ -111,12 +110,12 @@ public class Patient {
 						PreparedStatement preparedStmt = con.prepareStatement(query); 
 				// binding values
 				preparedStmt.setInt(1, 0);
-				preparedStmt.setString(2, username);
-				preparedStmt.setString(3, address);
-				preparedStmt.setString(4, nic);
-				preparedStmt.setString(5, dob);
+				preparedStmt.setString(2, userName);
+				preparedStmt.setString(3, userAddress);
+				preparedStmt.setString(4, nicNo);
+				preparedStmt.setString(5, dateOfBirth);
 				preparedStmt.setString(6, gender); 
-				preparedStmt.setString(7, mobile_number); 
+				preparedStmt.setString(7, mobileNumber); 
 				preparedStmt.setString(8, email); 
 				preparedStmt.setString(9, password); 
 	
@@ -124,19 +123,20 @@ public class Patient {
 				preparedStmt.execute();
 				con.close();
 				String newPatients = readPatients();
-				output = "{\"status\":\"success\", \"data\": \"" +newPatients + "\"}";
+				output = "{\"status\":\"success\", \"data\": \"" + newPatients + "\"}";
 			}
 				catch (Exception e)
 			{
 					output = "{\"status\":\"error\", \"data\": \"Error while inserting new patient.\"}";
 					System.err.println(e.getMessage());
 			}
-			return output;
-    		}
+		return output;
+    }
 	
 	
 	//update----------------------------------------------------------------------------------------------------------------
-	public String updatePatient(String userid,String username,String address,String nic,String dob,String gender,String mobile_number,String email,String password) {
+	public String updatePatient(String userID,String userName,String userAddress,String nicNo,String dateOfBirth,String gender,String mobileNumber,String email,String password) {
+		
 		String output = "";
 		try {
 			Connection con = connect();
@@ -147,21 +147,21 @@ public class Patient {
 			String query = "UPDATE patient SET userName=?,userAddress=?,nicNo=?,dateOfBirth=?,gender=?,mobileNumber=?,email=?,password=? WHERE userID=?";
 			PreparedStatement preparedStmt = con.prepareStatement(query);
 			// binding values
-			preparedStmt.setString(1, username);
-			preparedStmt.setString(2, address);
-			preparedStmt.setString(3, nic);
-			preparedStmt.setString(4, dob);
+			preparedStmt.setString(1, userName);
+			preparedStmt.setString(2, userAddress);
+			preparedStmt.setString(3, nicNo);
+			preparedStmt.setString(4, dateOfBirth);
 			preparedStmt.setString(5, gender);
-			preparedStmt.setString(6, mobile_number);
+			preparedStmt.setString(6, mobileNumber);
 			preparedStmt.setString(7, email);
 			preparedStmt.setString(8, password);
-			preparedStmt.setInt(9, Integer.parseInt(userid));
+			preparedStmt.setInt(9, Integer.parseInt(userID));
 			// execute the statement
 			preparedStmt.execute();
 			con.close();
 			
 			String newPatients = readPatients();
-			output = "{\"status\":\"success\", \"data\": \"" +newPatients + "\"}";
+			output = "{\"status\":\"success\", \"data\": \"" + newPatients + "\"}";
 		} catch (Exception e) {
 			output = "{\"status\":\"error\", \"data\": \"Error while updating new patient.\"}";
 			System.err.println(e.getMessage());
@@ -172,7 +172,7 @@ public class Patient {
 	
 	
 	//delete-------------------------------------------------------------------------------------------------------------------
-	public String deletePatient(String userid) {
+	public String deletePatient(String userID) {
 		String output = "";
 		try {
 			Connection con = connect();
@@ -185,13 +185,13 @@ public class Patient {
 			String query = "delete from patient where userID=?";
 			PreparedStatement preparedStmt = con.prepareStatement(query);
 			// binding values
-			preparedStmt.setInt(1, Integer.parseInt(userid));
+			preparedStmt.setInt(1, Integer.parseInt(userID));
 			// execute the statement
 			preparedStmt.execute();
 			con.close();
 			
 			String newPatients = readPatients();
-			output = "{\"status\":\"success\", \"data\": \"" +newPatients + "\"}";
+			output = "{\"status\":\"success\", \"data\": \"" + newPatients + "\"}";
 		} catch (Exception e) {
 			output = "{\"status\":\"error\", \"data\": \"Error while deleting new patient.\"}";;
 			System.err.println(e.getMessage());
