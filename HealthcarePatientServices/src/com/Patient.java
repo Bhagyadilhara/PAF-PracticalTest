@@ -42,6 +42,7 @@ public class Patient {
 					+ "<th>Gender</th>"
 					+ "<th>Mobile No</th>"
 					+ "<th>Email</th>"
+					+ "<th>Password</th>"
 					+ "<th>Update</th>"
 					+ "<th>Remove</th>"
 					+ "</tr>";
@@ -60,6 +61,7 @@ public class Patient {
 				String gender = rs.getString("gender");
 				String mobileNumber = rs.getString("mobileNumber");
 				String email = rs.getString("email");
+				String password = rs.getString("password");
 				
 				// Add into the html table
 				output += "<tr><td>" + userID + "</td>";
@@ -70,7 +72,7 @@ public class Patient {
 				output += "<td>" + gender + "</td>";
 				output += "<td>" + mobileNumber + "</td>";
 				output += "<td>" + email + "</td>";
-				
+				output += "<td>" + password + "</td>";
 				// buttons
 				output += "<td><input name='btnUpdate'type='button' "
 						+ "value='Update'class='btnUpdate btn btn-secondary'></td>"
