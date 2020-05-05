@@ -27,12 +27,12 @@ $(document).on("click", "#btnSave", function(event)
 	}
 	
 	// If valid------------------------
-	var method = ($("#hidPatientIDSave").val() == "") ? "POST" : "PUT";
+	var type = ($("#hidPatientIDSave").val() == "") ? "POST" : "PUT";
 	
 	$.ajax(
 	{
 		url : "PatientsAPI",
-		type : method,
+		type : type,
 		data : $("#formPatient").serialize(),
 		dataType : "text",
 		complete : function(response, status)
