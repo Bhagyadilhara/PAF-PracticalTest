@@ -72,5 +72,17 @@ function onPatientSaveComplete(response, status)
 }
 
 
-
+//UPDATE==========================================
+$(document).on("click", ".btnUpdate", function(event)
+{
+	$("#hidPatientIDSave").val($(this).closest("tr").find('#hidPatientIDUpdate').val());
+	$("#userName").val($(this).closest("tr").find('td:eq(0)').text());
+	$("#address").val($(this).closest("tr").find('td:eq(1)').text());
+	$("#nic").val($(this).closest("tr").find('td:eq(2)').text());
+	$("#dob").val($(this).closest("tr").find('td:eq(3)').text());
+	$("#gender").val($(this).closest("tr").find('td:eq(4)').text());
+	$("#mobileNo").val($(this).closest("tr").find('td:eq(5)').text());
+	$("#email").val($(this).closest("tr").find('td:eq(6)').text());
+	$("#password").val($(this).closest("tr").find('td:eq(7)').text());
+});
 
