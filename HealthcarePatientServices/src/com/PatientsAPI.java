@@ -100,7 +100,7 @@ public class PatientsAPI extends HttpServlet {
 		// TODO Auto-generated method stub
 		Map paras = getParasMap(request);
 		
-		String output = patientObj.deletePatient(paras.get("userid").toString());
+		String output = patientObj.deletePatient(paras.get("userID").toString());
 		
 		response.getWriter().write(output);
 		
