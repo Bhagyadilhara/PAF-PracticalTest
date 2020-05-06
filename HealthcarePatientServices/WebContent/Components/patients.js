@@ -156,6 +156,14 @@ function validatePatientForm()
 	{
 		return "Insert Valid NIC Number.";
 	}
+	//length validate
+	if ($("#nicNo").val().length > 10){
+		return "More than 10 digits are included! in NIC"
+	}
+	if ($("#nicNo").val().length < 10){
+		return "Please enter 10 digits value to NIC"
+	}
+	
 	
 	//DOB
 	if ($("#dateOfBirth").val().trim() == "")
