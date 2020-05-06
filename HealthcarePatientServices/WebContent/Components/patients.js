@@ -81,7 +81,8 @@ $(document).on("click", ".btnUpdate", function(event)
 	$("#userAddress").val($(this).closest("tr").find('td:eq(1)').text());
 	$("#nicNo").val($(this).closest("tr").find('td:eq(2)').text());
 	$("#dateOfBirth").val($(this).closest("tr").find('td:eq(3)').text());
-	$("#gender").val($(this).closest("tr").find('td:eq(4)').text());
+	//$("#gender").val($(this).closest("tr").find('td:eq(4)').text());
+	$("#gender").prop('checked', 'checked');
 	$("#mobileNumber").val($(this).closest("tr").find('td:eq(5)').text());
 	$("#email").val($(this).closest("tr").find('td:eq(6)').text());
 	$("#password").val($(this).closest("tr").find('td:eq(7)').text());
