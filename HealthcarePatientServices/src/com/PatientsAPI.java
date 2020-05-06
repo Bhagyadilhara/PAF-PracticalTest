@@ -70,7 +70,7 @@ public class PatientsAPI extends HttpServlet {
 						paras.get("email").toString().replace("%", "@").replace("40","").replace("+"," "),
 						paras.get("password").toString().replace("%23", "#").replace("+"," "));
 				
-				
+				//fixed 
 		response.getWriter().write(output);
 	}
 
