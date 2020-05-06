@@ -67,7 +67,7 @@ public class PatientsAPI extends HttpServlet {
 						paras.get("dateOfBirth").toString(),
 						paras.get("gender").toString(),
 						paras.get("mobileNumber").toString(),
-						paras.get("email").toString(),
+						paras.get("email").toString().replace("%", "@").replace("40",""),
 						paras.get("password").toString());
 				
 				
