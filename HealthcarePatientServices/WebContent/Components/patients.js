@@ -156,6 +156,7 @@ function validatePatientForm()
 	{
 		return "Insert Valid NIC Number.";
 	}
+	
 	//length validate
 	if ($("#nicNo").val().length > 10){
 		return "More than 10 digits are included! in NIC"
@@ -203,6 +204,18 @@ function validatePatientForm()
 		return "Insert E-mail Address.";
 	}
 	
+	function validateEmail($email) {
+		 var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+		 return emailReg.test( $email );
+	}
+
+	
+	var tmpEmail = $("#email").val().trim();
+	   if ( !validateEmail(tmpEmail))
+	   {
+	       return "Insert the email correctly.";
+	   }
+	   
 	//PASSWORD
 	if ($("#password").val().trim() == "")
 	{
