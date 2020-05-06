@@ -26,6 +26,14 @@
 		})
 	})
 </script>
+
+<style>
+body {
+	background:url(Images/patient.png) no-repeat center fixed;
+	background-size: cover; 
+}
+
+</style>
 </head>
 <body>
 
@@ -33,8 +41,10 @@
 <div class="container">
 	<div class="row" >
 		<div class="col-6">
+				<br>
 			<h1>Patients Management</h1>
 			
+			<br>
 			<form id="formPatient" name="formPatient" method="post" action="patients.jsp">
 
 				User Name:
