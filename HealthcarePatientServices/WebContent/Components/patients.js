@@ -189,6 +189,13 @@ function validatePatientForm()
 	{
 		return "Insert numerical value for Mobile Number.";
 	}
+	//length validate
+	if ($("#mobileNumber").val().length > 10){
+		return "More than 10 digits are included! in Mobile No"
+	}
+	if ($("#mobileNumber").val().length < 10){
+		return "Please enter 10 digits for Mobile No"
+	}
 	
 	//EMAIL
 	if ($("#email").val().trim() == "")
