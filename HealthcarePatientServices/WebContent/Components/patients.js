@@ -172,9 +172,9 @@ function validatePatientForm()
 	}
 	
 	//GENDER
-	if ($("#gender").val().trim() == "")
+	if ($('input[name="gender"]:checked').length === 0)
 	{
-		return "Insert Gender.";
+	return "Select gender.";
 	}
 	
 	//MOBILENO-------------------------------
