@@ -82,6 +82,7 @@
 				<br>
 				
 				<input id="btnSave" name="btnSave" type="button" value="Save" class="btn btn-primary">
+				<a href="patients.jsp" class="btn btn-danger" onclick="" type="button">Clear</a>
 				<input type="hidden" id="hidPatientIDSave" name="hidPatientIDSave" value="">
 			</form>
 			
