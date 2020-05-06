@@ -61,14 +61,14 @@ public class PatientsAPI extends HttpServlet {
 		Map paras = getParasMap(request);
 		
 		String output = patientObj.updatePatient(paras.get("hidPatientIDSave").toString(),
-						paras.get("userName").toString(),
-						paras.get("userAddress").toString(),
+						paras.get("userName").toString().replace("+"," "),
+						paras.get("userAddress").toString().replace("%2C", ",").replace("+"," "),
 						paras.get("nicNo").toString(),
 						paras.get("dateOfBirth").toString(),
 						paras.get("gender").toString(),
 						paras.get("mobileNumber").toString(),
-						paras.get("email").toString().replace("%", "@").replace("40",""),
-						paras.get("password").toString());
+						paras.get("email").toString().replace("%", "@").replace("40","").replace("+"," "),
+						paras.get("password").toString().replace("%23", "#").replace("+"," "));
 				
 				
 		response.getWriter().write(output);
