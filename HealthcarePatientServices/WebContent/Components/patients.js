@@ -159,10 +159,10 @@ function validatePatientForm()
 	
 	//length validate
 	if ($("#nicNo").val().length > 10){
-		return "More than 10 digits are included! in NIC"
+		return "More than 10 digits are included! in NIC";
 	}
 	if ($("#nicNo").val().length < 10){
-		return "Please enter 10 digits value to NIC"
+		return "Please enter 10 digits value to NIC";
 	}
 	
 	
@@ -192,10 +192,10 @@ function validatePatientForm()
 	}
 	//length validate
 	if ($("#mobileNumber").val().length > 10){
-		return "More than 10 digits are included! in Mobile No"
+		return "More than 10 digits are included! in Mobile No";
 	}
 	if ($("#mobileNumber").val().length < 10){
-		return "Please enter 10 digits for Mobile No"
+		return "Please enter 10 digits for Mobile No";
 	}
 	
 	//EMAIL
