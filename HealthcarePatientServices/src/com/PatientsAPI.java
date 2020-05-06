@@ -80,9 +80,9 @@ public class PatientsAPI extends HttpServlet {
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		Map paras = getParasMap(request);
-		
+
 		String output = patientObj.deletePatient(paras.get("userID").toString());
-		
+
 		response.getWriter().write(output);
 	}
 	
@@ -90,15 +90,15 @@ public class PatientsAPI extends HttpServlet {
 			private static Map getParasMap(HttpServletRequest request)
 			{
 				Map<String, String> map = new HashMap<String, String>();
-				
+
 				try
 				{
 					Scanner scanner = new Scanner(request.getInputStream(), "UTF-8");
 					String queryString = scanner.hasNext() ? scanner.useDelimiter("\\A").next() : "";
 					scanner.close();
-					
+
 					String[] params = queryString.split("&");
-					
+
 					for (String param : params)
 					{
 						String[] p = param.split("=");
