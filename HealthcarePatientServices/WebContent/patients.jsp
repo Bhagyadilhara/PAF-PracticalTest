@@ -53,9 +53,21 @@
 				<input id="dateOfBirth" name="dateOfBirth" type="text" class="form-control form-control-sm"  placeholder="YYYY-MM-DD" >
 				<br>
 				
-				Gender:
-				<input id="gender" name="gender" type="text" class="form-control form-control-sm">
-				<br>
+				 <div class="form-group" id="div_radio1">
+				     <label class="control-label " for="radio1">
+				     Gender:
+				     </label>
+					     <div class="">
+						     <label class="radio-inline">
+						     <input id="gender" name="gender" type="radio" value="Male"/>
+						     Male
+						     </label>
+						     <label class="radio-inline">
+						     <input id="gender" name="gender" type="radio" value="Female"/>
+						     Female
+						     </label>
+					     </div>
+			     </div>
 				
 				Mobile Number:
 				<input id="mobileNumber" name="mobileNumber" type="text" class="form-control form-control-sm">
